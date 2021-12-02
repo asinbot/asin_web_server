@@ -34,4 +34,16 @@ class UserInfo extends ApiBase {
         return $user;
     }
 
+    public function getUserInfoWithScore() {
+        $qq = Request::post('qq');
+        if (!$qq) {
+            Exception::throw('QQ号不能为空', 10001);
+        }
+        $user = $this->domain->getDataWithScore($qq);
+        if (!$user) {
+            Exception::throw('用户不存在', 10101);
+        }
+        return $user;
+    }
+
 }

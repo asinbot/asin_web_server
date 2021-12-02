@@ -14,6 +14,17 @@ class UserInfo {
         return $this->model->get($qq);
     }
 
+    public function getDataWithScore($qq) {
+        $data = $this->getData($qq);
+        if (!$data) return $data;
+        $doScore = new \Domain\UserScore();
+        $score = $doScore->getData($qq);
+        $data['score'] = $score["score"];
+        $data["credit"] = $score["credit"];
+        $data["rank"] = $doScore->getRank($qq);
+        return $data;
+    }
+
     public function setData($qq, $datas) {
         $data = $this->getData($qq);
         if ($data) return $this->model->update($qq, $datas);
