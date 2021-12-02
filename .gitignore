@@ -1,0 +1,9 @@
+/.idea
+/.vscode
+
+/.git
+/.gitee
+.DS_Store
+/config/global.php
+/log/*
+!/log/.gitkeep

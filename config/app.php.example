@@ -1,0 +1,23 @@
+<?php
+return [
+    'jwt' => [ //自建jwt配置
+        'key' => '', //密钥
+        'iv' => '', //加密iv向量
+        'iss' => '',
+        'timeout' => 3600*24
+    ],
+    'server' => [ //服务器配置
+        'ip' => '127.0.0.1',
+        'host' => 'http://127.0.0.1', //末尾不加/
+    ],
+     'wechat' => [ //微信配置
+         'appid' => '',
+         'secret_key' => '',
+         'mch_id' => '',//不用支付可以不用配置
+         'mch_key' => '',//不用支付可以不用配置
+         'payment_notify_route' => '/wxpay_payment_notify.php',//微信支付成功通知路径，从服务器host开始
+         'refund_notify_route' => '/wxpay_refund_notify.php',//微信退款成功通知路径，从服务器host开始
+         'SSLCERT_PATH' => dirname(__FILE__)  . '',//PEM cert证书路径
+         'SSLKEY_PATH' => dirname(__FILE__) . '',//PEM key证书路径
+     ]
+];

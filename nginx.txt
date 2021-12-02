@@ -1,0 +1,5 @@
+location /api/ {
+    if (!-e $request_filename){
+        rewrite  ^/api/(.*)$  /api.php?s=$1  last;
+    }
+}
