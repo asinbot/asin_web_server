@@ -6,6 +6,7 @@
 namespace Api;
 
 use \PHF\ApiBase;
+use PHF\Exception;
 use PHF\Request;
 
 class UserInfo extends ApiBase {
@@ -22,9 +23,14 @@ class UserInfo extends ApiBase {
      * @return void
      */
     public function getUserInfo() {
-        echo "-----------------getUserInfo\n";
         $qq = Request::post('qq');
+        if (!$qq) {
+            Exception::throw('QQ号不能为空', 10001);
+        }
         $user = $this->domain->getData($qq);
+        if (!$user) {
+            Exception::throw('用户不存在', 10101);
+        }
         return $user;
     }
 
