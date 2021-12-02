@@ -11,7 +11,7 @@ class ApiBase {
         // 经过考虑，规定继承类不应使用 __init 初始化，而直接使用 parent::__construct() 继承
         // 理由为 类 $this 变量在 __init 内赋值，在其他方法内无法获取自动获取到值，代码提示问题
         //  $this->__init();
-         $this->userCheck();
+        $this->userCheck();
     }
 
     protected function userCheck(){

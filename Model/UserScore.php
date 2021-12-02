@@ -29,7 +29,8 @@ class UserScore extends Medoo {
 		$score = (int)$datas['score'];
 		$datas['scorerank'] = $score*10000000000+(10000000000-time());
 		if (isset($datas['rank']) && $datas['rank']) $datas['scorerank'] = (100000000-intval($datas['rank']))*10000000000+(10000000000-time());
-		return parent::insert($datas, $pk);
+        if (!isset($datas["qq"])) $datas["qq"] = $pk;
+		return parent::insert($datas);
 	}
 
 	/**
