@@ -27,6 +27,7 @@ class PHF
         if (!class_exists($className)) Exception::throw('请求模组不存在', -402);
         $class = new $className();
         if (!method_exists($class, $action)) Exception::throw('请求方法不存在', -403);
+        var_dump($class, $action);
         Response::return($class->$action());
     }
 }
