@@ -9,7 +9,7 @@ use \PHF\ApiBase;
 use PHF\Exception;
 use PHF\Request;
 
-class UserInfo extends ApiBase {
+class UserAttr extends ApiBase {
 
     private $domain;
     public function __construct()
@@ -22,19 +22,19 @@ class UserInfo extends ApiBase {
      *
      * @return void
      */
-    public function getUserInfo() {
+    public function getUserAttr() {
         $qq = Request::post('qq');
         if (!$qq) {
             Exception::throw('QQ号不能为空', 10001);
         }
-        $user = $this->domain->getData($qq);
+        $user = $this->domain->getUserAttr($qq);
         if (!$user) {
             Exception::throw('用户不存在', 10101);
         }
         return $user;
     }
 
-    public function getUserInfoWithFight() {
+    public function getUserAttrWithFight() {
         $qq = Request::post('qq');
         if (!$qq) {
             Exception::throw('QQ号不能为空', 10001);
