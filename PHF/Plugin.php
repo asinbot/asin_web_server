@@ -101,6 +101,7 @@ class Plugin implements ArrayAccess
     public function onConstruct()
     {
         $this->config = new Config(DIR_ROOT.'config');
+        var_dump($this->config->get('db'));
         $this->medoo = new \PHF\Database\Medoo($this->config->get('db'));
         $this->request = '\\PHF\\Request';
         $this->response = '\\PHF\\Response';
