@@ -22,6 +22,7 @@ class UserInfo extends ApiBase {
      * @return void
      */
     public function getUserInfo() {
+        echo "-----------------getUserInfo\n";
         $qq = Request::post('qq');
         $user = $this->domain->getData($qq);
         return $user;
